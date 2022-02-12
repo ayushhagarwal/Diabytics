@@ -1,6 +1,16 @@
 import React from "react";
+import { withRouter, Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const Navbar = (props) => {
+  const currentPath = props.location.pathname;
+  const menuFunc = (currentPath) => {
+    if (currentPath === "/") {
+      return ["About", "Login"];
+    } else {
+      return ["Signout"];
+    }
+  };
+  console.log(props.location.pathname);
   return (
     <div>
       <nav className="bg-gray-800">
@@ -16,26 +26,27 @@ const Navbar = (props) => {
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
-                  <a
-                    href="#"
+                  <Link
+                    to="#"
                     className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Diabytics
-                  </a>
+                  </Link>
 
-                  <a
-                    href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    {props.menu_1}
-                  </a>
-
-                  <a
-                    href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    {props.menu_2}
-                  </a>
+                  {menuFunc(currentPath).map((menu) => {
+                    return (
+                      <>
+                        <Link
+                          to={
+                            menu === "Signout" ? "/" : `/${menu.toLowerCase()}`
+                          }
+                          className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                        >
+                          {menu}
+                        </Link>
+                      </>
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -119,4 +130,4 @@ const Navbar = (props) => {
   );
 };
 
-export default Navbar;
+export default withRouter(Navbar);

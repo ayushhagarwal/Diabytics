@@ -11,24 +11,22 @@ import {
 
 import { auth } from "../../firebase-config";
 
-const Login = () => {
+const Signup = () => {
   const history = useHistory();
 
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
-
   const [user, setUser] = useState({});
-
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
   });
 
-  const login = async () => {
+  const [registerEmail, setRegisterEmail] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
+  const register = async () => {
     try {
-      const user = await signInWithEmailAndPassword(
+      const user = await createUserWithEmailAndPassword(
         auth,
-        loginEmail,
-        loginPassword
+        registerEmail,
+        registerPassword
       );
       const token = user.user.accessToken;
       localStorage.setItem("token", token);
@@ -42,37 +40,29 @@ const Login = () => {
       console.log(error.message);
     }
   };
-
-  const logout = async () => {
-    await signOut(auth);
-    localStorage.removeItem("token");
-    history.push({
-      pathname: "/",
-    });
-  };
-
   return (
     <div>
+      Signup
       <div>
-        <h3>Login</h3>
+        <h3>Register User</h3>
         <input
           placeholder="Email..."
           onChange={(event) => {
-            setLoginEmail(event.target.value);
+            setRegisterEmail(event.target.value);
           }}
         />
         <input
           placeholder="Passsword..."
           onChange={(event) => {
-            setLoginPassword(event.target.value);
+            setRegisterPassword(event.target.value);
           }}
         />
         <div>
           <button
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
-            onClick={login}
+            onClick={register}
           >
-            Login
+            Create User
           </button>
         </div>
       </div>
@@ -80,4 +70,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
