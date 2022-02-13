@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import Dashboard from "../Dashboard/Dashboard";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 import {
-  createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,

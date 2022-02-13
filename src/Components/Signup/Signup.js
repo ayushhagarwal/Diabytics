@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import Dashboard from "../Dashboard/Dashboard";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 import {
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
   onAuthStateChanged,
-  signOut,
 } from "firebase/auth";
 
 import { auth } from "../../firebase-config";
@@ -21,6 +18,7 @@ const Signup = () => {
 
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
+  const [registerName, setRegisterName] = useState("");
   const register = async () => {
     try {
       const user = await createUserWithEmailAndPassword(
@@ -41,29 +39,42 @@ const Signup = () => {
     }
   };
   return (
-    <div>
-      Signup
-      <div>
-        <h3>Register User</h3>
-        <input
-          placeholder="Email..."
-          onChange={(event) => {
-            setRegisterEmail(event.target.value);
-          }}
-        />
-        <input
-          placeholder="Passsword..."
-          onChange={(event) => {
-            setRegisterPassword(event.target.value);
-          }}
-        />
+    <div className="'h-screen flex bg-gray-bg1'">
+      <div className="w-full max-w-md m-auto bg-blue-100 rounded-lg border border-primaryBorder shadow-default py-10 px-16">
+        <p className="py-2">Create Your Account</p>
         <div>
-          <button
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
-            onClick={register}
-          >
-            Create User
-          </button>
+          <input
+            type="text"
+            className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
+            placeholder="Full Name"
+            onChange={(event) => {
+              setRegisterName(event.target.value);
+            }}
+          />
+          <input
+            type="email"
+            className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
+            placeholder="Email Address"
+            onChange={(event) => {
+              setRegisterEmail(event.target.value);
+            }}
+          />
+          <input
+            type="password"
+            className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
+            placeholder="Your Password"
+            onChange={(event) => {
+              setRegisterPassword(event.target.value);
+            }}
+          />
+          <div>
+            <button
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded"
+              onClick={register}
+            >
+              Create User
+            </button>
+          </div>
         </div>
       </div>
     </div>
