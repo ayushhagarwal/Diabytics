@@ -3,13 +3,10 @@ import Login from "./Components/Login/Login";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import Signup from "./Components/Signup/Signup";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const App = () => {
-  const history = useHistory();
   const handleSignup = () => {
-    // history.push("/login");
     window.location.href = "/signup";
   };
   return (
@@ -17,10 +14,6 @@ const App = () => {
       <Switch>
         <div className="App h-screen bg-blue-300 ">
           <Navbar />
-          <h1 className="text-2xl text-center">
-            Hello from react and tailwind project
-          </h1>
-
           <button
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
             onClick={handleSignup}
