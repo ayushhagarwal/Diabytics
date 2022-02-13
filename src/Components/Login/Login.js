@@ -50,24 +50,28 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <div>
-        <h3>Login</h3>
+    <div className="'h-screen flex bg-gray-bg1'">
+      <div className="w-full max-w-md m-auto bg-blue-100 rounded-lg border border-primaryBorder shadow-default py-10 px-16">
+        <p className="py-2">Log into your account</p>
         <input
-          placeholder="Email..."
+          type="email"
+          className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
+          placeholder="Email Address"
           onChange={(event) => {
             setLoginEmail(event.target.value);
           }}
         />
         <input
-          placeholder="Passsword..."
+          type="password"
+          className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
+          placeholder="Password"
           onChange={(event) => {
             setLoginPassword(event.target.value);
           }}
         />
         <div>
           <button
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded"
             onClick={login}
           >
             Login
