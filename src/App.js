@@ -3,6 +3,7 @@ import Login from "./Components/Login/Login";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import Signup from "./Components/Signup/Signup";
+import Datas from "./Components/Datas/Datas";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/login" component={Login} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <PrivateRoute exact path="/signup" component={Signup} />
+          <PrivateRoute exact path="/datas" component={Datas} />
         </div>
       </Switch>
     </Router>
