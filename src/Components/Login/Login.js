@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-import {
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-} from "firebase/auth";
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
 import { auth } from "../../firebase-config";
 
@@ -15,6 +11,7 @@ const Login = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
+  // eslint-disable-next-line
   const [user, setUser] = useState({});
 
   onAuthStateChanged(auth, (currentUser) => {
@@ -41,13 +38,7 @@ const Login = () => {
     }
   };
 
-  const logout = async () => {
-    await signOut(auth);
-    localStorage.removeItem("token");
-    history.push({
-      pathname: "/",
-    });
-  };
+  // eslint-disable-next-line
 
   return (
     <div className="'h-screen flex bg-gray-bg1'">

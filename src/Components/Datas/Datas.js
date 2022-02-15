@@ -1,27 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Data from "../Data/Data";
 import AddData from "../AddData/AddData";
 const Datas = () => {
-  const [datas, setDatas] = useState([
-    {
-      id: 1,
-      date: "20/02/2021",
-      ppbs: 105,
-      fbs: 150,
-    },
-    {
-      id: 2,
-      date: "20/03/2021",
-      ppbs: 125,
-      fbs: 160,
-    },
-    {
-      id: 1,
-      date: "20/04/2021",
-      ppbs: 115,
-      fbs: 150,
-    },
-  ]);
+  const [datas, setDatas] = useState([]);
+  useEffect(() => {
+    fetch("https://diabytics-default-rtdb.firebaseio.com/todo.json")
+      .then((res) => res.json())
+      .then((res) => {
+        let data = [];
+        for (const key in res) {
+          data.push({
+            id: key,
+            ...res[key],
+          });
+        }
+        setDatas(data);
+      });
+  }, [datas]);
 
   // Add Data
   const addData = (data) => {
@@ -33,20 +28,15 @@ const Datas = () => {
     setDatas([...datas, newData]);
   };
 
-  // Delete Data
-  const deleteData = (id) => {
-    setDatas(datas.filter((data) => data.id !== id));
-  };
-
   return (
     <div>
       <AddData add={addData} />
       hello welcome to data entry page
-      <>
+      <div className="flex flex-row">
         {datas.map((data) => (
-          <Data key={data.id} data={data} onDelete={deleteData} />
+          <Data key={data.id} data={data} setDatas={setDatas} datas={datas} />
         ))}
-      </>
+      </div>
     </div>
   );
 };

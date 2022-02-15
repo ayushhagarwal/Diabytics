@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 
 const AddData = ({ add }) => {
+  const pushData = (data) => {
+    fetch("https://diabytics-default-rtdb.firebaseio.com/todo.json", {
+      method: "POST",
+      body: JSON.stringify(data),
+    });
+  };
+
   const [date, setDate] = useState("");
   const [ppbs, setPpbs] = useState("");
   const [fbs, setFbs] = useState("");
@@ -11,7 +18,11 @@ const AddData = ({ add }) => {
       alert("Please add a Date");
       return;
     }
-    add({ date, ppbs, fbs });
+    pushData({
+      date,
+      ppbs,
+      fbs,
+    });
     setDate("");
     setPpbs("");
     setFbs("");

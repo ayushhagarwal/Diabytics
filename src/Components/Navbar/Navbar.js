@@ -1,8 +1,30 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom/cjs/react-router-dom.min";
+import { signOut } from "firebase/auth";
+
+import { auth } from "../../firebase-config";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Navbar = (props) => {
+  const history = useHistory();
+
+  const logout = async (e, menu) => {
+    e.preventDefault();
+    if (menu === "Signout") {
+      await signOut(auth);
+      localStorage.removeItem("token");
+      history.push({
+        pathname: "/",
+      });
+    } else {
+      history.push({
+        pathname: `/${menu.toLowerCase()}`,
+      });
+    }
+  };
+
   const currentPath = props.location.pathname;
+
   const menuFunc = (currentPath) => {
     if (currentPath === "/") {
       return ["About", "Login"];
@@ -27,7 +49,7 @@ const Navbar = (props) => {
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
                   <Link
-                    to="#"
+                    to="/"
                     className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Diabytics
@@ -37,10 +59,11 @@ const Navbar = (props) => {
                     return (
                       <>
                         <Link
-                          to={
-                            menu === "Signout" ? "/" : `/${menu.toLowerCase()}`
-                          }
+                          // to={
+                          //   menu === "Signout" ? "/" : `/${menu.toLowerCase()}`
+                          // }
                           className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                          onClick={(e) => logout(e, menu)}
                         >
                           {menu}
                         </Link>

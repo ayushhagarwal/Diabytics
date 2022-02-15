@@ -11,6 +11,7 @@ import { auth } from "../../firebase-config";
 const Signup = () => {
   const history = useHistory();
 
+  // eslint-disable-next-line
   const [user, setUser] = useState({});
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
@@ -18,6 +19,7 @@ const Signup = () => {
 
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
+  // eslint-disable-next-line
   const [registerName, setRegisterName] = useState("");
   const register = async () => {
     try {
