@@ -5,26 +5,19 @@ import PrivateRoute from "./PrivateRoute";
 import Signup from "./Components/Signup/Signup";
 import Datas from "./Components/Datas/Datas";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Header } from "./Components/Header/Header";
 
 const App = () => {
-  const handleSignup = () => {
-    window.location.href = "/signup";
-  };
   return (
     <Router>
       <Switch>
         <div className="App h-screen bg-blue-300 ">
           <Navbar />
-          <button
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
-            onClick={handleSignup}
-          >
-            Try Now
-          </button>
           <Route path="/login" component={Login} />
-          <PrivateRoute exact path="/dashboard" component={Dashboard} />
-          <PrivateRoute exact path="/signup" component={Signup} />
-          <PrivateRoute exact path="/datas" component={Datas} />
+          <PrivateRoute path="/dashboard" component={Dashboard} />
+          <PrivateRoute path="/signup" component={Signup} />
+          <PrivateRoute path="/datas" component={Datas} />
+          <Route exact path="/" component={Header} />
         </div>
       </Switch>
     </Router>
