@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import Charts from "../Chart/Charts";
 
 const Dashboard = (props) => {
   const history = useHistory();
@@ -18,6 +19,7 @@ const Dashboard = (props) => {
       >
         Enter Data
       </button>
+      <Charts />
     </div>
   );
 };
