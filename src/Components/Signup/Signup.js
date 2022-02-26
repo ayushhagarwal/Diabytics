@@ -41,9 +41,9 @@ const Signup = () => {
     }
   };
   return (
-    <div className="'h-screen flex bg-gray-bg1'">
+    <div className="h-screen flex bg-gray-bg1">
       <div className="w-full max-w-md m-auto bg-blue-100 rounded-lg border border-primaryBorder shadow-default py-10 px-16">
-        <p className="py-2">Create Your Account</p>
+        <p className="py-2">Let's get you started quickly!</p>
         <div>
           <input
             type="text"
