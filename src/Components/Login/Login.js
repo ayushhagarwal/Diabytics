@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-
 import { auth } from "../../firebase-config";
 
 const Login = () => {
@@ -41,7 +39,7 @@ const Login = () => {
   // eslint-disable-next-line
 
   return (
-    <div className="'h-screen flex bg-gray-bg1'">
+    <div className="h-screen flex bg-gray-bg1">
       <div className="w-full max-w-md m-auto bg-blue-100 rounded-lg border border-primaryBorder shadow-default py-10 px-16">
         <p className="py-2">Log into your account</p>
         <input
