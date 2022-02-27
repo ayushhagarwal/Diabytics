@@ -12,14 +12,17 @@ const Dashboard = (props) => {
   };
   return (
     <div>
-      <h3>Hello welcome to your dashboard</h3>
+      <p className="text-xl text-indigo-900 text-center py-5">
+        Hello! Below is your test analytics over time.
+      </p>
+
+      <Charts />
       <button
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded mx-2"
         onClick={enterhandler}
       >
         Enter Data
       </button>
-      <Charts />
     </div>
   );
 };

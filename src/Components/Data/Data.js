@@ -13,7 +13,7 @@ const Data = ({ data, setDatas, datas }) => {
 
   return (
     <div className="p-2">
-      <div className="max-w-sm bg-blue-100 rounded-lg border border-primaryBorder shadow-default ">
+      {/* <div className="max-w-sm bg-blue-100 rounded-lg border border-primaryBorder shadow-default ">
         <div className="px-3 py-2">
           <h3>
             {data.date}
@@ -25,7 +25,7 @@ const Data = ({ data, setDatas, datas }) => {
           <p>{data.ppbs}</p>
           <p>{data.fbs}</p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

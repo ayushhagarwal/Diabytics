@@ -30,8 +30,11 @@ const Datas = () => {
 
   return (
     <div>
+      <p className="text-center text-xl py-10 text-indigo-900">
+        Add your latest test results here.
+      </p>
       <AddData add={addData} />
-      hello welcome to data entry page
+
       <div className="flex flex-row">
         {datas.map((data) => (
           <Data key={data.id} data={data} setDatas={setDatas} datas={datas} />
