@@ -1,8 +1,10 @@
 import React from "react";
-import { FaTimes } from "react-icons/fa";
 
+// eslint-disable-next-line
 const Data = ({ data, setDatas, datas }) => {
   // Delete Data
+
+  // eslint-disable-next-line
   const deleteData = (id) => {
     fetch(`https://diabytics-default-rtdb.firebaseio.com//todo/${id}.json`, {
       method: "DELETE",
