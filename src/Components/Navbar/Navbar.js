@@ -28,11 +28,12 @@ const Navbar = (props) => {
   const menuFunc = (currentPath) => {
     if (currentPath === "/") {
       return ["About", "Login"];
+    } else if (currentPath === "/signup" || currentPath === "/login") {
+      return ["About"];
     } else {
       return ["Signout"];
     }
   };
-  console.log(props.location.pathname);
   return (
     <div>
       <nav className="bg-gray-800">
@@ -132,12 +133,6 @@ const Navbar = (props) => {
           </div>
         </div>
       </nav>
-
-      {/* <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-        </div>
-      </header> */}
     </div>
   );
 };

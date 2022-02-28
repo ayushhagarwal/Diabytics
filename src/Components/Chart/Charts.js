@@ -37,10 +37,6 @@ const Charts = () => {
   }, []);
   console.log(datas);
 
-  // const month = new Date(datas[0]?.date).toLocaleString(undefined, {
-  //   month: "long",
-  // });
-
   const labels = [
     "January",
     "February",
@@ -55,24 +51,6 @@ const Charts = () => {
     "November",
     "December",
   ];
-  // const options = {
-  //   tooltips: {
-  //     enabled: true,
-  //   },
-  //   responsive: true,
-  //   scales: {
-  //     y: [
-  //       {
-  //         display: true,
-  //         stacked: true,
-  //         ticks: {
-  //           min: 0, // minimum value
-  //           max: 10, // maximum value
-  //         },
-  //       },
-  //     ],
-  //   },
-  // };
   const options = {
     legend: {
       display: true,
