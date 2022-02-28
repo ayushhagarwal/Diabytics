@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const AddData = ({ add }) => {
+  const history = useHistory();
+
   const pushData = (data) => {
     fetch("https://diabytics-default-rtdb.firebaseio.com/todo.json", {
       method: "POST",
@@ -23,6 +26,7 @@ const AddData = ({ add }) => {
       ppbs,
       fbs,
     });
+    history.push("/dashboard");
     setDate("");
     setPpbs("");
     setFbs("");
@@ -45,6 +49,7 @@ const AddData = ({ add }) => {
             <input
               type="number"
               placeholder="PPBS "
+              max="1000"
               onChange={(e) => setPpbs(e.target.value)}
               className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
             />
@@ -53,6 +58,7 @@ const AddData = ({ add }) => {
             <input
               type="number"
               placeholder="FBS"
+              max="1000"
               onChange={(e) => setFbs(e.target.value)}
               className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
             />

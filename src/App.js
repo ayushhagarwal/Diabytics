@@ -10,9 +10,9 @@ import { Header } from "./Components/Header/Header";
 const App = () => {
   return (
     <Router>
+      <Navbar />
       <Switch>
-        <div className="App h-screen bg-blue-300 ">
-          <Navbar />
+        <div className="h-screen bg-blue-300">
           <Route path="/login" component={Login} />
           <PrivateRoute path="/dashboard" component={Dashboard} />
           <Route path="/signup" component={Signup} />

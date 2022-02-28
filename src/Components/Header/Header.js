@@ -1,12 +1,12 @@
 import React from "react";
-import graph from "../../assets/images/graph.svg";
+import lab from "../../assets/images/lab.svg";
 
 export const Header = () => {
   const handleSignup = () => {
     window.location.href = "/signup";
   };
   return (
-    <div className="flex justify-start h-screen items-center px-10">
+    <div className="flex justify-center h-screen items-center px-10">
       <div>
         <p className="text-3xl color text-indigo-900 font-sans">
           Sick of loosing records of your diabetes tests?
@@ -22,7 +22,7 @@ export const Header = () => {
         </button>
       </div>
       <div>
-        <img src={graph} alt="chart" />
+        <img src={lab} alt="chart" />
       </div>
     </div>
   );
