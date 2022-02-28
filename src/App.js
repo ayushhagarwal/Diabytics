@@ -15,7 +15,7 @@ const App = () => {
           <Navbar />
           <Route path="/login" component={Login} />
           <PrivateRoute path="/dashboard" component={Dashboard} />
-          <PrivateRoute path="/signup" component={Signup} />
+          <Route path="/signup" component={Signup} />
           <PrivateRoute path="/datas" component={Datas} />
           <Route exact path="/" component={Header} />
         </div>

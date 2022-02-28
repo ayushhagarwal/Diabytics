@@ -9,7 +9,7 @@ export const Header = () => {
     <div className="flex justify-start h-screen items-center px-10">
       <div>
         <p className="text-3xl color text-indigo-900 font-sans">
-          Sick of lossing records of your diabetes tests?
+          Sick of loosing records of your diabetes tests?
         </p>
         <p className="text-xl py-4">
           Not anymore! Keeping track of your test just got easier.
