@@ -6,7 +6,7 @@ This is an open source project, aimed to keep track of a persons diabetes tests 
 * TaiwlindCSS
 * Firebase
 
-The project is deployed at : [Diabytics] (https://diabytics.ayushdev.com)
+The project is deployed at : [Diabytics](https://diabytics.ayushdev.com)
 
 ### Getting Started with Create React App
 
