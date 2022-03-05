@@ -1,4 +1,14 @@
-## Getting Started with Create React App
+## DIABYTICS 
+This is an open source project, aimed to keep track of a persons diabetes tests and help them monitor it. 
+
+### Tech Stack - 
+* ReactJS
+* TaiwlindCSS
+* Firebase
+
+The project is deployed at : [Diabytics] (https://diabytics.ayushdev.com)
+
+### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
