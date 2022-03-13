@@ -28,6 +28,8 @@ const Navbar = (props) => {
   const menuFunc = (currentPath) => {
     if (currentPath === "/") {
       return ["About", "Login"];
+    } else if (currentPath === "/about") {
+      return ["Login"];
     } else if (currentPath === "/signup" || currentPath === "/login") {
       return ["About"];
     } else {
