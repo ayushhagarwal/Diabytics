@@ -28,6 +28,6 @@ npm install
 npm start
 ```
 
-<i>Note for Open Source Contributors:</i>
+<i>Note for Contributors:</i>
 <br>
 You don't need to set up Firebase yourself; when you raise a PR, Netlify will generate a build preview where you can check how your change will look in the deployed version.
